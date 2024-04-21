@@ -3,7 +3,7 @@ name: Deploy Angular Application
 on:
   push: 
     branches:
-      - mean-docker-ec2
+      - master
 
 jobs:
   build:
@@ -14,17 +14,17 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}       
       - name: Build docker image
-        run: docker build -t integrationninjas/angular-app .
+        run: docker build -t diockerhub/client .
       - name: Publish image to docker hub
-        run: docker push integrationninjas/angular-app:latest
+        run: docker push diockerhub/client:latest
         
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull integrationninjas/angular-app:latest
+        run: docker pull diockerhub/client:latest
       - name: Delete old container
-        run: docker rm -f angular-app-container  
+        run: docker rm -f client-container  
       - name: Run docker container
-        run: docker run -d -p 4200:80 --name angular-app-container integrationninjas/angular-app
+        run: docker run -d -p 4200:80 --name client-container diockerhub/client
