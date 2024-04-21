@@ -1,0 +1,51 @@
+<div class="container">
+    <h1>Tratamiento de Datos Personales para Aplicación de Manejo de Caja Menor</h1>
+    
+    <p>El presente documento establece los términos y condiciones para el tratamiento de datos personales en relación con la utilización de la aplicación de manejo de caja menor (en adelante, "la Aplicación").</p>
+  
+    <h2>1. Responsable del Tratamiento</h2>
+    <p>El responsable del tratamiento de los datos personales recabados a través de la Aplicación es el proveedor de la Aplicación, quien garantiza el cumplimiento de la normativa vigente en materia de protección de datos personales.</p>
+  
+    <h2>2. Datos Personales Recabados</h2>
+    <ul>
+      <li>Información de identificación del usuario (nombre, dirección de correo electrónico, etc.).</li>
+      <li>Información financiera relacionada con la gestión de la caja menor (transacciones, montos, conceptos, etc.).</li>
+    </ul>
+  
+    <h2>3. Finalidad del Tratamiento</h2>
+    <p>Los datos personales recabados serán tratados con las siguientes finalidades:</p>
+    <ul>
+      <li>Gestión y administración de la caja menor.</li>
+      <li>Cumplimiento de obligaciones legales y fiscales.</li>
+      <li>Mejora de la experiencia del usuario en la Aplicación.</li>
+    </ul>
+  
+    <h2>4. Base Legal para el Tratamiento</h2>
+    <p>El tratamiento de datos personales se llevará a cabo en base a las siguientes bases legales:</p>
+    <ul>
+      <li>Consentimiento del usuario para el tratamiento de sus datos personales.</li>
+      <li>Ejecución de un contrato en el que el usuario es parte o para la aplicación de medidas precontractuales a solicitud del mismo.</li>
+      <li>Cumplimiento de obligaciones legales aplicables al responsable del tratamiento.</li>
+    </ul>
+  
+    <h2>5. Derechos de los Usuarios</h2>
+    <p>Los usuarios de la Aplicación tienen derecho a:</p>
+    <ul>
+      <li>Acceder a sus datos personales.</li>
+      <li>Rectificar sus datos personales en caso de ser inexactos o incompletos.</li>
+      <li>Suprimir sus datos personales cuando, entre otros motivos, ya no sean necesarios para los fines para los que fueron recabados.</li>
+      <li>Oponerse al tratamiento de sus datos personales en determinadas circunstancias.</li>
+      <li>Limitar el tratamiento de sus datos personales en los casos previstos por la ley.</li>
+    </ul>
+  
+    <h2>6. Autorización del Usuario</h2>
+    <p>Al utilizar la Aplicación, el usuario manifiesta haber leído y comprendido el presente documento, otorgando su consentimiento expreso para el tratamiento de sus datos personales de acuerdo con lo establecido en el mismo.</p>
+    <label>
+      <input type="checkbox" [(ngModel)]="autorizado"> Acepto los términos y condiciones
+    </label>
+    
+    <button class="btn btn-primary" (click)="confirmar()" [disabled]="!autorizado">Confirmar</button>
+    <button class="btn btn-secondary" (click)="regresar()">Regresar</button>
+  
+  </div>
+  

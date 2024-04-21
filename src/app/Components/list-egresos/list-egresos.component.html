@@ -1,0 +1,94 @@
+<!-- <div class="additional-background"> -->
+<div class="container">
+  <div class="p-grid form-cont">
+    <!-- Fila 1: Fecha de inicio y fecha de fin -->
+    <div class="items-form">
+      <label for="fechaInicio">Fecha de inicio:</label>
+      <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio" class="p-inputtext">
+    </div>
+    <div class="items-form">
+      <label for="fechaFin">Fecha de fin:</label>
+      <input type="date" id="fechaFin" [(ngModel)]="fechaFin" class="p-inputtext">
+    </div>
+
+    <!-- Fila 2: Categoría y Terceros -->
+    <div class="items-form">
+      <label for="categoria">Categoría:</label>
+      <select id="categoria" [(ngModel)]="categoriaSeleccionada" class="form-select" aria-label="Categoría">
+        <option value="">-- Sin seleccionar --</option>
+        <option *ngFor="let cat of categoria" [value]="cat._id">{{ cat.nombre }}</option>
+      </select>
+    </div>
+    
+    <div class="items-form">
+      <label for="tercero">Tercero:</label>
+      <select id="tercero" [(ngModel)]="terceroSeleccionado" class="form-select height-select" aria-label="Tercero">
+        <option value="">-- Sin seleccionar --</option>
+        <option *ngFor="let ter of tercero" [value]="ter._id">{{ ter.nombreTercero }}</option>
+      </select>
+    </div>
+
+    <!-- Fila 3: Botón de filtrar -->
+    <div class="items-form cont-form-booton ">
+      <button type="submit" class="btn btn-primary btn-lg" (click)="obtenerEgresos()">Filtrar</button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container cont-table">
+  <div class="title">
+    <div class="row">
+      <div class="col">
+        <h1 class="col text-center">Listado de Egresos</h1>
+        <div class="card">
+          <p-table #dt1 [value]="egresos" [rows]="10" [paginator]="true" [showCurrentPageReport]="true"
+            [rowsPerPageOptions]="[10, 25, 50]"
+            currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas" [loading]="loading"
+            [globalFilterFields]="['fecha', 'detalle', 'valor']" [style]="{marginTop: '20px'}"
+            [tableStyle]="{'min-width': '60rem'}">
+            <ng-template pTemplate="caption">
+              <div class="cont-search">
+                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+                  (click)="clear(dt1)"></button>
+                <span class="p-input-icon-left">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="filterData($event)" placeholder="Buscar por palabra clave" />
+                </span>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Fecha</th>
+                <th>Detalle</th>
+                <th>Valor</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-egreso>
+              <tr>
+                <td>{{ egreso.fecha | date: 'dd-MM-yyyy'}}</td>
+                <td><button type="button" class="btn btn-primary" (click)="verDetalle(egreso)">Ver</button></td>
+                <td>{{ egreso.valor }}</td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="5">No hay egresos para mostrar</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- Ventana modal -->
+  <app-modal-egreso *ngIf="mostrarModal" [egreso]="egresoSeleccionado"></app-modal-egreso>

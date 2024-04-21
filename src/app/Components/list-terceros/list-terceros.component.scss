@@ -1,0 +1,28 @@
+.container-contenedor{
+    margin-top: 70px;
+  
+  }
+  
+ 
+  // button {
+  //   background-color: #007bff;
+  //   color: white;
+  //   border: none;
+  //   border-radius: 5px;
+  //   cursor: pointer;
+  //   margin-left: 10px;
+  // }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .cont-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .cont-search button {
+    margin-right: 10px;
+  }

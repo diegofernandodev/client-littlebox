@@ -1,0 +1,63 @@
+<!-- Para la tabla de Lista de empleado -->
+<div class="table-responsive" *ngIf="isLoggedIn && !isSuperUsuario">
+  <div class="table-container">
+    <h1>Lista de empleado</h1>
+    <p-table [value]="usuarios" [paginator]="true" [rows]="10">
+      <!-- Table Header -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre de usuario</th>
+          <th>Rol</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <!-- Table Body -->
+      <ng-template pTemplate="body" let-usuario>
+        <tr>
+          <td>{{ usuario.username }}</td>
+          <td>{{ usuario.rol }}</td>
+          <td [ngClass]="{'text-success': usuario.status === 'activo', 'text-danger': usuario.status === 'inactivo'}">
+            {{ usuario.status }}
+          </td>
+          <td>
+            <button *ngIf="usuario.status !== 'activo'" class="btn btn-success" (click)="activarUsuario(usuario._id)">Activar</button>
+            <button *ngIf="usuario.status !== 'inactivo'" class="btn btn-danger" (click)="inactivarUsuario(usuario._id)">Inactivar</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<!-- Para la tabla de Lista de todos los Usuarios -->
+<div class="table-responsive" *ngIf="isLoggedIn && isSuperUsuario">
+  <div class="table-container">
+    <h1>Lista de todos los Usuarios</h1>
+    <p-table [value]="ListUsuarios" [paginator]="true" [rows]="10">
+      <!-- Table Header -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre de usuario</th>
+          <th>Rol</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <!-- Table Body -->
+      <ng-template pTemplate="body" let-usuario>
+        <tr>
+          <td>{{ usuario.username }}</td>
+          <td>{{ usuario.rol }}</td>
+          <td [ngClass]="{'text-success': usuario.status === 'activo', 'text-danger': usuario.status === 'inactivo'}">
+            {{ usuario.status }}
+          </td>
+          <td>
+            <button *ngIf="usuario.status !== 'activo'" class="btn btn-success" (click)="activarUsuario(usuario._id)">Activar</button>
+            <button *ngIf="usuario.status !== 'inactivo'" class="btn btn-danger" (click)="inactivarUsuario(usuario._id)">Inactivar</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="custom-container">
+  <div class="form">
+        <form (ngSubmit)="guardarCategoria()"  >
+          <h1>Registrar un nueva Categoria </h1>
+
+          <div class="mb-3">
+            <label class="form-label">Nombre de la Categoria:</label>
+            <input type="text" [(ngModel)]="categoria.nombre" name="nombre" class="form-control" required>
+          </div>
+      
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+  </div>

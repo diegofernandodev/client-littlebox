@@ -1,0 +1,82 @@
+
+
+<div class="d-flex justify-content-center form-content">
+  <form (ngSubmit)="sendAndRegistrar()" class="row">
+
+    <div class="col-md-6">
+
+
+      <h2>Datos de la empresa</h2>
+      <div class="mb-3">
+        <label for="nameCompany" class="form-label">Nombre:</label>
+        <input type="text"  [(ngModel)]="company.nameCompany" class="form-control" id="nameCompany" name="nameCompany"  placeholder="Nombre de empresa" required>
+        
+      </div>
+
+      <!-- <div class="mb-3">
+        <label for="emailCompany" class="form-label">Email:</label>
+        <input type="email"  [(ngModel)]="company.emailCompany" class="form-control" id="emailCompany" name="emailCompany" placeholder="correo de la empresa" required>
+      </div> -->
+
+      <div class="mb-3">
+        <label for="telephoneCompany" class="form-label">Telefono:</label>
+        <input type="text"  [(ngModel)]="company.telephoneCompany" class="form-control" id="telephoneCompany" name="telephoneCompany"  placeholder="Telefono de contacto" required>
+       
+      </div>
+
+      <div class="mb-3">
+        <label for="pdfRunt" class="form-label">Rut(pdf):</label>
+        <input type="file" (change)="onFileSelected($event)" class="form-control" id="pdfRunt" name="pdfRunt" placeholder="PDF del Runt" required>
+       
+      </div>
+
+      <div class="mb-3">
+        <label for="directionCompany" class="form-label">Direccion:</label>
+        <input type="text" [(ngModel)]="company.directionCompany"  class="form-control" id="directionCompany" name="directionCompany" placeholder="Dirección de la empresa" required>
+        
+      </div>
+
+      <div class="mb-3">
+        <label for="tenantId" class="form-label">Nit:</label>
+        <input type="text"  [(ngModel)]="company.tenantId" class="form-control" id="tenantId" name="tenantId" placeholder="Nit de la empresa" required>
+       
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Datos del Gerente</h2>
+
+      <div class="mb-3">
+        <label for="username" class="form-label">Nombre:</label>
+        <input type="text"  [(ngModel)]="User.username"class="form-control" id="username" name="username"  placeholder="Nombres y apellidos" required>
+      </div>
+      <!-- <div class="mb-3">
+        <label for="rol" class="form-label">Cargo: </label>
+        <input type="text" [(ngModel)]="User.rol" class="form-control text-ligth" id="rol" name="rol"  disabled>
+      </div> -->
+      
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email"   [(ngModel)]="User.email"class="form-control" id="email" name="email" placeholder="correo " required>
+      </div>
+      <div class="mb-3">
+        <label for="identification" class="form-label">Identificacion:</label>
+        <input type="text"  [(ngModel)]="User.identification" class="form-control" id="identification" name="identification"  placeholder="Ingrese su cedula" required>
+      </div>
+      <div class="mb-3">
+        <label for="telephone" class="form-label">Telefono:</label>
+        <input type="text"  [(ngModel)]="User.telephone" class="form-control" id="telephone" name="telephone"  placeholder="Telefono de contacto" required>
+      </div>
+    
+  
+      <div class="mb-3">
+        <label for="direction" class="form-label">Direccion:</label>
+        <input type="text" [(ngModel)]="User.direction" class="form-control" id="direction" name="direction" placeholder="Dirección de residencia" required>
+      </div>
+    </div>
+
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
+</div>

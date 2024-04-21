@@ -1,0 +1,79 @@
+// .table-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   margin-top: 70px;
+// }
+
+// .title {
+//   margin-bottom: 20px;
+// }
+
+// .table-wrapper {
+//   width: 50%;
+//   overflow: hidden;
+// }
+
+// table {
+//   width: 100%;
+//   border-collapse: collapse;
+//   border: transparent;
+//   border-radius: 5px;
+
+// }
+
+// .table th,
+// .table td {
+//   padding: 8px;
+//   border: 1px solid #ccc;
+// }
+
+// .table th {
+//   background-color: #dfdfdf;
+// }
+
+// .table tbody tr:nth-child(even) {
+//   background-color: #f2f2f2;
+// }
+
+// .table tbody tr:hover {
+//   background-color: #ddd;
+// }
+
+
+// .pagination-controls {
+//   ul {
+//     list-style-type: none;
+//     padding: 0;
+//     display: flex;
+//     flex-direction: row;
+//   }
+
+//   li {
+//     margin-right: 5px; /* Espacio entre cada número de página */
+//   }
+
+//   a {
+//     text-decoration: none;
+//     padding: 5px 10px;
+//     border: 1px solid #ccc;
+//     border-radius: 3px;
+//     background-color: #217be2;
+//     color: white;
+//   }
+
+//   a:hover {
+//     background-color: #0863db;
+//   }
+// }
+
+.cont-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cont-search button {
+  margin-right: 10px;
+}

@@ -1,0 +1,45 @@
+<!-- <div class="modal-content">
+    <h3>Detalles de la solicitud</h3>
+    <p>Id: {{ solicitud?.solicitudId }}</p>
+    <p>Detalle: {{ solicitud?.detalle }}</p>
+    <p>Tercero: {{ solicitud?.tercero.nombreTercero }}</p>
+    <p>Categoría: {{ solicitud?.categoria.nombre }}</p>
+    <p>Factura: <button (click)="verFactura()">Descargar factura</button></p>    
+  </div> -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h3 class="card-title mb-4 text-center fw-bold">Detalles de la solicitud {{ solicitud?.solicitudId }}</h3>
+        <ul class="list-group list-group-flush">
+          
+          <li class="list-group-item">
+            <strong class="fs-5 fw-bold">Detalle:</strong> <span style="margin-left: 5rem;">{{ solicitud?.detalle }}</span>
+          </li>
+          <li class="list-group-item">
+            <strong class="fs-5 fw-bold">Tercero:</strong> <span style="margin-left: 5rem;">{{ solicitud?.tercero.nombreTercero }}</span>
+          </li>
+          <li class="list-group-item">
+            <strong class="fs-5 fw-bold">Categoría:</strong> <span style="margin-left: 5rem;">{{ solicitud?.categoria.nombre }}</span>
+          </li>
+          <li class="list-group-item">
+              <span class="me-2 fw-bold fs-5">Factura:</span> 
+              <button pButton type="button" icon="pi pi-download" class="p-button p-button-icon-only p-button-outlined p-button-sm p-button-info" style="height: 2rem; width: 2rem; border-radius: 50%; margin-left: 7rem;" (click)="verFactura()">
+              </button>              
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,254 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+div {
+  display: flex;
+}
+
+// .menu-container {
+//   position: fixed;
+//   top: 0;
+//   left: -200px; /* Oculta el menú lateral por defecto */
+//   width: 200px;
+//   height: 100%;
+//   background-color: #333;
+//   transition: left 0.3s ease;
+//   z-index: 1; /* Asegura que el menú esté por encima del contenido principal */
+// }
+
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+.menu-open {
+  left: 0;
+}
+
+    /* Modal styles */
+  /* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-x: hidden;
+  overflow-y: auto; /* Permite el desplazamiento vertical si el contenido del modal es demasiado largo */
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+  background-color: white; 
+  margin: 7% auto;
+  padding: 10px; 
+  border: 1px solid #cdc8c8;
+  width: 90%; /* Ancho del modal */
+  max-width: 500px; /* Ancho máximo del modal */
+  max-height: 90%; /* Altura máxima del modal */
+  overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede el tamaño del modal */
+  box-shadow: 0 0 10px rgba(19, 18, 19, 0.3); /* Sombra */
+  border-radius: 10px; /* Bordes redondeados */
+}
+  
+  .close {
+    color: #0e0e0e;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  
+  
+  
+ 
+  /* Active class to display the modal */
+  .modal.active {
+    display: block;
+  }
+  
+
+
+
+.logo{
+  width: 100%;
+  height: 50px;
+  
+  
+
+}
+
+.full-width {
+  width: 100%;
+}
+
+
+.menu-contain{
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+}
+
+
+
+
+.menu-item {
+  padding: 10px;
+  text-decoration: none;
+  color: #131212;
+}
+
+
+.custom-menu-item {
+  color: blue; /* Cambia el color del texto */
+  font-weight: bold; /* Ajusta el peso de la fuente */
+  /* Agrega más estilos personalizados según tus necesidades */
+}
+/* Eliminar bordes entre elementos del menú */
+.custom-menubar .p-menuitem {
+  border-bottom: none;
+}
+
+/* Opcional: Ajustar márgenes para eliminar el espacio entre los elementos */
+.custom-menubar .p-menuitem {
+  margin-bottom: 0;
+}
+
+.cont-notifi-singIn-quit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  .cont-notification{
+    margin-right: 2rem;
+  }
+  
+
+  .btn-bell {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none; /* Elimina el contorno del botón */
+    border-radius: 50px;
+    height: 25px;
+    margin-top: 12px;
+}
+
+
+/* Estilos para el icono dentro del botón */
+.btn-bell .pi {
+    color: #356CDD;
+    font-size: 22px; /* Tamaño del icono */
+    outline: none; /* Elimina cualquier contorno al hacer clic en el icono */
+    border: none;
+}
+
+  
+  .cont-notification button.btn-bell:hover {
+    transform: scale(1.2); /* Ajusta el tamaño del icono al hacer hover */
+  }
+
+  .btn-bell .pi:hover{
+    color: #356CDD;
+  }
+
+  .num-notifi{
+    width: 24px; height: 24px; line-height: 20px; text-align: center; vertical-align: middle; font-size: 12px; margin-left: 4px;
+  }
+
+  .notification-menu {
+    max-width: 90%; /* Ancho máximo del contenedor de notificaciones */
+    margin: 0 auto; /* Centrar el contenedor */
+    max-height: 80vh; /* Altura máxima del contenedor, 80% del alto de la ventana */
+    overflow-y: auto; /* Agregar barra de desplazamiento vertical si es necesario */
+    position: fixed; /* Establecer posición fija */
+    top: 10%; /* Alinear arriba */
+    left: 70%; /* Alinear a la izquierda */
+    right: 2%;
+    transform: translateX(-20%, 0); /* Centrar horizontalmente */
+    padding: 0.5rem; /* Espaciado interno */
+    background-color: #fff; /* Color de fondo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    border-radius: 10px;
+    z-index: 9999; /* Z-index para asegurar que esté por encima de otros elementos */
+  }
+
+  /* Media query para pantallas más pequeñas, como dispositivos móviles */
+@media (max-width: 768px) {
+  .notification-menu {
+    width: 70%;
+    max-width: 90%; /* Ancho máximo del contenedor reducido para dispositivos móviles */
+    left: 50%; /* Alinear a la mitad del ancho de la pantalla */
+    top: 10%; /* Alinear arriba */
+    transform: translateX(-50%); /* Centrar horizontalmente */
+  }
+}
+
+
+.positivo {
+  color: green; /* Color verde para saldos positivos */
+}
+
+.negativo {
+  color: red; /* Color rojo para saldos negativos */
+}
+
+.saldo-caja {
+  overflow: hidden; /* Oculta el contenido que se desborde del contenedor */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  padding-top: 8px;
+  margin-right: 30px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.saldo-caja h3 {
+  animation: moveBalance 12s linear infinite; /* Aplica la animación al elemento h3 */
+}
+
+@keyframes moveBalance {
+  0% {
+    transform: translateX(100%); /* Mueve el texto hacia la derecha */
+  }
+  100% {
+    transform: translateX(-100%); /* Devuelve el texto al inicio (izquierda) */
+  }
+}
+  
+  
+/* Estilo base para el botón */
+.btn-custom {
+  background-color: transparent;
+  border-color: transparent;
+  color: blue; /* Color de texto inicial */
+  transition: color 0.3s; /* Transición suave del color del texto */
+}
+
+/* Estilo para el botón al pasar el mouse sobre él */
+.btn-custom:hover {
+  color: white; /* Cambio de color de texto al pasar el mouse */
+}
+
+/* Estilo para el icono dentro del botón */
+.btn-custom svg {
+  fill: blue; /* Color del icono inicial */
+  transition: fill 0.3s; /* Transición suave del color del icono */
+}
+
+/* Estilo para el icono dentro del botón al pasar el mouse sobre él */
+.btn-custom:hover svg {
+  fill: white; /* Cambio de color del icono al pasar el mouse */
+}

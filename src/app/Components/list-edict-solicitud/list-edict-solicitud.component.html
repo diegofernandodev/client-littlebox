@@ -1,0 +1,119 @@
+
+<div class="container contenedor">
+  <div class="title">
+    <div class="contenedor-header cont-filtros">
+      <div class="row justify-content-between">
+        <!-- Contenedor izquierdo -->
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-5 mb-2">
+              <label for="fechaInicio">Fecha Inicio:</label>
+              <input type="date" id="fechaInicio" class="form-control fecha-input" [(ngModel)]="fechaInicio">
+            </div>
+            <div class="col-md-5 mb-2">
+              <label for="fechaFin">Fecha Fin:</label>
+              <input type="date" id="fechaFin" class="form-control fecha-input" [(ngModel)]="fechaFin">
+            </div>
+            <div class="col-md-2 mb-2 mt-2">
+              <button type="button" label="Filtrar" class="btn btn-primary mt-3"
+                (click)="filtrarSolicitudes()">Filtrar</button>
+            </div>
+          </div>
+        </div>
+        <!-- Contenedor derecho -->
+        <div class="col-md-3">
+          <div class="row">
+            <div class="col-md-8 mb-2">
+              <div *ngIf="rolUsuario !== 'Colaborador'" class="estado-solicitudes-container">
+                <label for="estado-select">Estado:</label>
+                <select class="form-select" aria-label="Estado" [(ngModel)]="estadoSeleccionado" name="estado" required #terceroInput="ngModel" style="height: 45px;">
+                  <option selected disabled>Seleccionar estado</option>
+                  <option *ngFor="let estado of estadoDeSolicitud" [value]="estado._id">{{ estado.nombre }}</option>
+                </select>
+              </div>
+            </div>
+            <div *ngIf="rolUsuario !== 'Colaborador'" class="col-md-4 mb-2 mt-3">
+              <button (click)="guardarCambiosEstado()" type="button" class="btn btn-primary mt-2">Guardar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 align-items-end">
+          <div class="row">
+            <div class="col-md-12 mt-3">
+              <button *ngIf="rolUsuario !== 'Administrador'" type="button" class="btn btn-success mt-2" routerLink="/add" style="margin-left: 100px;">Agregar Solicitud</button>
+            </div>
+          </div>
+        </div>
+        
+    
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center">Listado de Solicitudes</h1>
+        <div class="card">
+          <p-table #dt1 [value]="listSolicitudes" [rows]="10" [paginator]="true" [showCurrentPageReport]="true"
+          [rowsPerPageOptions]="[10, 25, 50]"
+          currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas" [loading]="loading"
+          [globalFilterFields]="['selec', 'solicitud#', 'fecha', 'proveedor','estado.nombre', 'detalle', 'valor','acciones']"
+          [style]="{marginTop: '20px'}" [tableStyle]="{'min-width': '60rem'}">
+            <ng-template pTemplate="caption">
+              <div class="cont-search">
+                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+                  (click)="clear(dt1)"></button>
+                <span class="p-input-icon-left">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="filterData($event)" placeholder="Buscar por palabra clave"
+                    class="p-inputtext-sm" />
+                </span>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Selec</th>
+                <th>Solicitud #</th>
+                <th>Fecha</th>
+                <th>Proveedor</th>
+                <th>Estado</th>
+                <th>Detalle</th>
+                <th>Valor</th>
+                <th>Acciones</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-solicitud>
+              <tr>
+                <td>
+                  <div class="checkbox-container">
+                    <input *ngIf="rolUsuario !== 'Colaborador' && solicitud.estado?.nombre !== 'finalizado'"
+                           type="checkbox" 
+                           (change)="seleccionarSolicitud(solicitud?._id)"
+                           style="transform: scale(1.5); margin-right: 5px;">
+                    <!-- Aquí he agregado estilos directamente en línea para aumentar el tamaño y añadir un margen a la derecha -->
+                  </div>
+                </td>
+                <td>{{ solicitud.solicitudId }}</td>
+                <td>{{ solicitud.fecha }}</td>
+                <td>{{ solicitud.tercero?.nombreTercero }}</td>
+                <td [style.Color]="getColorByEstado(solicitud.estado?.nombre)">
+                  {{ solicitud.estado?.nombre }}
+                </td>
+                <td>{{ solicitud.detalle }}</td>
+                <td>{{ solicitud.valor | currency }}</td>
+                <td class="table-actions">
+                  <button [routerLink]="['/edit', solicitud._id]" type="button"
+                  class="p-button p-button-icon-only p-button-rounded p-button-primary p-button-sm"><i class="pi pi-pencil"></i></button>
+                  <button (click)="verDetalle(solicitud)" type="button" class="p-button p-button-icon-only p-button-rounded p-button-info p-button-sm ms-2"> <i class="pi pi-eye"></i></button>
+                  <button *ngIf="rolUsuario !== 'Administrador'" (click)="deleteSolicitud(solicitud._id)" type="button"
+                  class="p-button p-button-icon-only p-button-rounded p-button-danger p-button-sm ms-2"> <i class="pi pi-trash"></i></button>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="5">No hay solicitudes para mostrar</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

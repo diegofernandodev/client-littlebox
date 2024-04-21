@@ -1,0 +1,56 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #08090B;
+}
+
+.sidebar-menu li {
+  margin-bottom: 5px;
+  padding: 10px 10px;
+  list-style-type: none; /* Elimina el punto */
+  transition: background-color 0.4s; /* Agrega transición suave al cambio de color de fondo */
+  margin-right: 10px;
+  // border-bottom: 1px solid rgba(28, 25, 25, 0.2)
+}
+
+// .sidebar-menu li + li {
+//   border-top: 1px solid rgba(255, 255, 255, 0.1); /* Agrega línea divisoria entre elementos */
+// }
+
+.sidebar-menu li:hover {
+  border-radius: 4px;
+  background-color: rgb(9, 49, 249); /* Cambia el color de fondo al pasar el mouse */
+  
+}
+
+.sidebar-menu li a {
+  color: #090909; /* Color de texto predeterminado */
+  text-decoration: none; /* Quita el subrayado */
+  gap: 10px
+}
+
+.sidebar-menu li a:hover {
+  color: #f8f8f9; /* Color de texto al pasar el mouse */
+}
+
+
+
+.menu-link {
+  display: flex;
+  align-items: center;
+}
+
+.menu-text {
+  margin-left: 10px; /* Ajusta este valor según sea necesario */
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid rgba(156, 153, 153, 0.9); /* Color y grosor de la línea */
+  width: 100%; /* Ajusta el ancho según sea necesario */
+  margin: 10px 0; /* Ajusta el margen según sea necesario */
+}
+

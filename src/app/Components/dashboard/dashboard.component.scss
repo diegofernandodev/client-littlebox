@@ -1,0 +1,133 @@
+.container {
+  max-width: 100%;
+  margin: 0 ;
+  padding: 20px;
+  margin-top: 40px;
+  // background: linear-gradient(to bottom, rgb(220, 230, 240), rgb(231, 242, 250)); /* Degradado de arriba hacia abajo */
+}
+
+.notification-section,
+.data-section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  
+}
+
+.notification-card li{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+
+}
+
+.notification-card li:hover{
+  background-color: rgba(9, 48, 245, 1); /* Cambia el color de fondo al pasar el mouse */
+  color: #f5f5f5;
+}
+.card {
+  flex: 1;
+  border: transparent;
+  border-radius: 7px;
+  padding: 20px;
+  margin-top: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.7s ease; /* Agregar una transición suave al efecto de sombra */
+}
+
+
+
+.card-title {
+  margin-bottom: 15px;
+}
+
+.table td,
+.table th {
+  padding: 0 10px;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+li {
+  border-bottom: transparent
+}
+
+
+
+ a {
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: inherit; /* Mantiene el color del texto del enlace igual que el texto circundante */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el enlace */
+}
+
+.notification-card {
+  margin-right: 20px; /* Ajusta el espaciado entre las tarjetas de notificaciones y solicitudes */
+}
+
+.request-card {
+  margin-left: 20px; /* Ajusta el espaciado entre las tarjetas de notificaciones y solicitudes */
+}
+
+
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.custom-table th,
+.custom-table td {
+  text-align: left;
+  background-color: transparent;
+}
+
+.custom-table th {
+  background-color: #cfc7c7;
+  color: #151414;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+h2{
+  background-color: #6fa2ff;
+  border-radius: 4px;
+}
+
+.cardCount {
+  width: 150px; /* Ancho fijo para la tarjeta */
+  height: 150px; /* Altura fija para la tarjeta */
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  margin: 10px; /* Margen igual para todos los lados */
+  padding: 20px; /* Espaciado interno igual para todos los lados */
+  margin-top: 40px;
+  border: 2px solid rgb(93, 93, 250);
+}
+
+
+.card-grafic{
+  margin-top: 50px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+
+}
+.shake {
+  animation: shake 2s ease infinite; /* Ajusta la duración de la animación */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}

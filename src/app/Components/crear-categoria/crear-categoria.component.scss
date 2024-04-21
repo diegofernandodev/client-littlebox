@@ -1,0 +1,56 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.custom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
+  background-image: linear-gradient(to bottom, #79cbe7, #a29b9b); /* Desde azul claro hasta blanco */
+}
+
+.form {
+  width: 50%;
+  margin: 30px auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(to bottom, #79cbe7, #a29b9b); /* Desde azul claro hasta blanco */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra suave */
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 30%; /* Hacer que el botón ocupe todo el ancho disponible */
+  margin-left: 35%; /* Establecer margen izquierdo automático */
+  margin-right: 50%; /* Establecer margen derecho automático */
+  display: block; /* Asegurar que el botón sea un bloque para aplicar márgenes automáticamente */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos adicionales para los input */
+input[type="text"],
+input[type="email"] {
+  width: calc(100% - 24px); /* Ajustar el ancho de los input al 100% del contenedor menos el padding */
+  padding: 10px;
+  margin-bottom: 10px; /* Espaciado entre inputs */
+  border: 1px solid #ccc; /* Borde gris */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  outline: none; /* Eliminar el contorno de enfoque */
+  border-color: #007bff; /* Cambiar el color del borde al enfocar */
+}

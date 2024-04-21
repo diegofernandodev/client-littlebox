@@ -1,0 +1,47 @@
+section{
+    display: flex;
+    width: 800px;
+    height: 439px;
+}
+
+
+section img:hover {
+    cursor: context-menu;
+    width: 300px;
+    opacity: 0.4; /* Corregido el valor de la opacidad */
+    filter: contrast(120%);
+}
+
+
+img {
+    width: 100%; 
+    height: auto;
+    background-repeat: no-repeat;
+  }
+
+/* Estilo para el texto dentro de la lámina negra */
+.carousel-caption {
+    color: #fff; /* Color del texto blanco */
+    text-align: center; /* Centrar el texto horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+}
+.carousel-caption h3{
+    font-size: 3rem;
+    z-index: 10;
+}
+.carousel-caption p{
+    font-size: 1.5rem;
+    z-index: 10;
+}

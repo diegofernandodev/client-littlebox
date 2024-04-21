@@ -1,0 +1,23 @@
+<div class="table-container">
+  <h1 class="title">Empresas Registradas</h1>
+
+  <p-table [value]="companies" [rows]="10" [paginator]="true">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nombre de la Empresa</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-company>
+      <tr>
+        <td>{{ company.nameCompany }}</td>
+        <td [style.color]="company.estado === 'aprobado' ? 'green' : 'red'">{{ company.estado }}</td>
+        <td>
+          <button *ngIf="company.estado !== 'aprobado'" (click)="activeCompany(company._id)" class="btn btn-primary">Activar</button>
+          <button *ngIf="company.estado !== 'inhabilitado'" (click)="disbaledCompany(company._id)" class="btn btn-danger">Inhabilitar</button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

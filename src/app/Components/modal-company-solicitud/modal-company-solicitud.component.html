@@ -1,0 +1,30 @@
+<div class="card border-0 shadow">
+  <div class="card-body">
+    <h2 class="card-title text-center mb-4">Datos de la Empresa</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <p class="card-text mb-2 font-size-lg">Teléfono:</p>
+        <p class="card-text mb-2 font-size-lg">NIT:</p>
+        <p class="card-text mb-2 font-size-lg">Email:</p>
+        <p class="card-text mb-2 font-size-lg">Dirección:</p>
+        <p class="card-text mb-2 font-size-lg">RUT:</p>
+      </div>
+      <div class="col-sm-6">
+        <p class="card-text mb-2 font-size-lg">{{ company?.telephoneCompany }}</p>
+        <p class="card-text mb-2 font-size-lg">{{ company?.tenantId }}</p>
+        <p class="card-text mb-2 font-size-lg">{{ company?.emailCompany }}</p>
+        <p class="card-text mb-2 font-size-lg">{{ company?.directionCompany }}</p>
+        <p class="card-text mb-2 font-size-lg">
+          <button (click)="verRut()" class="btn btn-link">
+            <i class="pi pi-download"></i>
+          </button>
+        </p>
+        <div class="text-center mt-3"> <!-- Contenedor para centrar los botones -->
+          <button (click)="approveCompany(company._id)" class="btn btn-primary me-3">Aprobar</button>
+          <button (click)="denyCompany(company._id)" class="btn btn-danger">Denegar</button>
+        </div>
+      </div>
+    </div>
+    <!-- Agrega más detalles si es necesario -->
+  </div>
+</div>

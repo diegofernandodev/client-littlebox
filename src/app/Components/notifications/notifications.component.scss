@@ -1,0 +1,60 @@
+
+
+.notification-container {
+  max-width: 500px; /* Ancho máximo del contenedor de notificaciones */
+  margin: 0 auto; /* Centrar el contenedor */
+}
+
+.notification-content {
+  padding: 10px; /* Espaciado interno */
+  cursor: pointer;
+  border-bottom: 1px solid #ddd; /* Línea divisoria entre notificaciones */
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+}
+
+.notification-content:hover {
+  background-color: #eff0f1; /* Cambio de color de fondo al pasar el mouse */
+}
+
+.unread .notification-content {
+  font-weight: bold;
+  color: #fff;
+  
+  border-radius: 5px;
+}
+
+.unread .notification-content a {
+  background-color: rgba(24, 119, 242, 0.5); /* Color de fondo para notificaciones no leídas con transparencia */
+  // color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.unread .notification-content a:hover{
+  background-color: #1877f2; /* Cambio de color de fondo al pasar el mouse */
+  color: #fff;
+}
+
+// .unread .notification-content:hover {
+//   background-color: #1877f2; /* Cambio de color de fondo al pasar el mouse */
+// }
+
+.notification-link {
+  text-decoration: none; /* Eliminar subrayado */
+  color: #000; /* Color de texto */
+  display: block; /* Para que el enlace ocupe todo el espacio disponible */
+}
+
+// .notification-link:hover {
+//   text-decoration: underline; /* Subrayado al pasar el mouse */
+// }
+
+.notification-message {
+  color: #000; /* Color de texto */
+  display: block; /* Para que el mensaje ocupe todo el espacio disponible */
+}
+
+.load-more {
+  cursor: pointer;
+  color: #1877f2; /* Color del enlace "Mostrar más" */
+}

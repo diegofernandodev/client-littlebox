@@ -1,0 +1,28 @@
+<div class="table-responsive" >
+  <div class="table-container">
+    <h1>Solicitudes de colaboradores</h1>
+<p-table [value]="usuarios" [emptyMessage]="'No hay solicitudes pendientes'" [paginator]="true" [rows]="10" class="table table-striped table-bordered">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre de usuario</th>
+      <th>Rol</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-usuario>
+    <tr *ngIf="usuario.rol !== 'Administrador'">
+      <td>{{ usuario.username }}</td>
+      <td>{{ usuario.rol }}</td>
+      <td [ngClass]="{'text-success': usuario.status === 'activo', 'text-danger': usuario.status === 'inactivo'}">
+        {{ usuario.status }}
+      </td>
+      <td>
+        <button (click)="activarUsuario(usuario._id)" class="btn btn-success">Aprobar</button>
+        <button (click)="deniedUsuario(usuario._id)" class="btn btn-danger">Denegar</button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+  </div>
+</div>

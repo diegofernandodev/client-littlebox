@@ -1,0 +1,49 @@
+
+<!-- <div class="card flex justify-content-center">
+  <p-listbox [options]="visibleNotifications" [(ngModel)]="selectedNotification" [listStyle]="{'max-height': '200px'}">
+    <ng-template let-notification pTemplate="item">
+      <div class="notification-item" [ngClass]="{'unread': !notification.read}" (click)="handleClickNotification(notification._id)">
+        <a *ngIf="notification.url" [routerLink]="notification.url">
+          {{ notification.message }}
+        </a>
+        <ng-container *ngIf="!notification.url">
+          {{ notification.message }}
+        </ng-container>
+      </div>
+    </ng-template>
+  </p-listbox>
+</div> -->
+
+<!-- <div class="card flex justify-content-center">
+  <p-listbox [options]="visibleNotifications" [(ngModel)]="selectedNotification" [listStyle]="{'max-height': '200px'}">
+    <ng-template let-notification pTemplate="item">
+        <div class="notification-item" [ngClass]="{'unread': !notification.read}" (click)="handleClickNotification(notification._id)">
+            {{ notification.message }}
+        </div>
+    </ng-template>
+  </p-listbox>
+  </div>  -->
+
+  <div class="notification-container">
+    <h2 class="text-center">Notificaciones</h2>
+    <ul>
+      <li *ngFor="let notification of visibleNotifications" [ngClass]="{ 'unread': !notification.read }">
+        <!-- Contenedor de la notificación -->
+        <div class="notification-content" (click)="handleClickNotification(notification._id)">
+          <!-- Si la notificación tiene una URL, mostrar un enlace -->
+          <a *ngIf="notification.url" [routerLink]="notification.url" class="notification-link">
+            {{ notification.message }}
+          </a>
+          <!-- Si no tiene una URL, solo mostrar el mensaje de la notificación -->
+          <ng-container *ngIf="!notification.url" class="notification-message">
+            {{ notification.message }}
+          </ng-container>
+        </div>
+      </li>
+      <p *ngIf="showLoadMoreLink && notifications.length > visibleNotifications.length" class="load-more" (click)="loadMoreNotifications()">
+        Mostrar más>>>
+      </p>
+    </ul>
+  </div>
+  
+

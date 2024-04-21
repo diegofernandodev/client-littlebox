@@ -1,0 +1,180 @@
+<div class="container">
+    <div class="row">
+        <!-- Columna única para la tarjeta de saldo -->
+        <div class="col-md-8 offset-md-2" *ngIf="isLoggedIn && isGerente">
+            <div *ngIf="saldoCaja < 10000" class="card tarjeta-ingreso bg-warning shake"  (click)="navegarAIngreso()" style="cursor: pointer;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <h3 class="card-title"><i class="pi pi-exclamation-triangle"></i> Debes realizar un ingreso</h3>
+                    <p class="card-text">HAZ ClICK AQUI</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <div class="row">    <!-- Columna Izquierda: Tarjetas -->
+        <div  class="col-md-6">
+            <!-- Tarjeta de notificaciones -->
+            <div class="card notification-card">
+                <h2 class="card-title text-center">
+                    <p-header>
+                        <i class="pi pi-bell"></i> Notificaciones
+                    </p-header>
+                </h2>
+                <ul>
+                    <li *ngFor="let notification of visibleNotifications" [ngClass]="{ 'unread': !notification.read }">
+                        <div (click)="handleClickNotification(notification._id)">
+                            <a *ngIf="notification.url" [routerLink]="notification.url">{{ notification.message }}</a>
+                        </div>
+                        <ng-container *ngIf="!notification.url">{{ notification.message }}</ng-container>
+                    </li>
+                    <p *ngIf="showLoadMoreLink && notifications.length > visibleNotifications.length" class="load-more" (click)="loadMoreNotifications()">Mostrar más>>></p>
+                </ul>
+            </div>
+
+            <!-- Lista de terceros -->
+            <div  class="card"  *ngIf="isLoggedIn && !isSuperUsuario">
+                <h2 class="card-title text-center">
+                    <p-header>
+                        <i class="pi pi-list"></i> Proveedores mas Relevantes
+                    </p-header>
+                </h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Nombres de los Proveedores</th>
+                            <th class="text-center">Veces usadas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tercero of terceros">
+                            <td class="text-center">{{ tercero.terceroNombre }}</td>
+                            <td class="text-center">{{ tercero.count }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Gráfico de terceros -->
+            <div  class="card"  *ngIf="isLoggedIn && !isSuperUsuario">
+                <h2 class="card-title text-center">
+                    <p-header>
+                        <i class="pi pi-chart-line"></i> Proveedores
+                    </p-header>
+                </h2>
+                <canvas #tercerosChart></canvas>
+            </div>
+
+            <!-- Lista de categorías -->
+            <div  class="card"  *ngIf="isLoggedIn && !isSuperUsuario">
+                <h2 class="card-title text-center">
+                    <p-header>
+                        <i class="pi pi-list"></i> Categorias relevantes
+                    </p-header>
+                </h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Nombre de la Categoría</th>
+                            <th class="text-center">Veces usadas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let categoria of categorias">
+                            <td class="text-center">{{ categoria.categoriaNombre }}</td>
+                            <td class="text-center">{{ categoria.count }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Gráfico de categorías -->
+            <div  class="card"  *ngIf="isLoggedIn && !isSuperUsuario">
+                <h2 class="card-title text-center">
+                    <p-header>
+                        <i class="pi pi-chart-line"></i> Categorias
+                    </p-header>
+                </h2>
+                <canvas #categoriasChart></canvas>
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Solicitudes -->
+        <div  class="col-md-6" *ngIf="isLoggedIn && !isSuperUsuario">
+            <!-- Lista de solicitudes -->
+            <!-- Lista de solicitudes -->
+<div class="card request-card">
+    <h2 class="card-title text-center">
+        <p-header>
+            <i class="pi pi-list"></i> Solicitudes pendientes
+        </p-header>
+    </h2>
+    <div class="row">
+        <ng-container *ngFor="let solicitud of listSolicitudes; let i = index">
+            <div class="col-md-6 col-lg-6" *ngIf="solicitud.estado?.nombre === 'pendiente'">
+                <div class="card request-item mb-3">
+                    <div class="card-body">
+                        <i [class]="getIconByCategory(solicitud.categoria?.nombre)"></i>
+                        <h5 class="card-title">Solicitud #{{ solicitud.solicitudId }}</h5>
+                        <p class="card-text">Fecha: {{ solicitud.fecha | date: 'dd-MM-yyyy' }}</p>
+                        <p class="card-text">Estado: <span [style.backgroundColor]="getColorByEstado(solicitud.estado?.nombre)" class="badge">{{ solicitud.estado?.nombre }}</span></p>
+                        <p class="card-text">Detalle: {{ solicitud.detalle }}</p>
+                        <p class="card-text">Valor: {{ solicitud.valor | currency }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Si es el último elemento y la cantidad de solicitudes es impar, agregamos un espacio en blanco -->
+            <div class="col-md-6 col-lg-6" *ngIf="listSolicitudes.length % 2 !== 0 && i === listSolicitudes.length - 1"></div>
+        </ng-container>
+        <div *ngIf="listSolicitudes.length === 0" class="col-md-12 text-center">No hay solicitudes pendientes.</div>
+    </div>
+</div>
+        </div>
+         <!-- Lista de empresas -->
+<div class="cardCount border-primary" *ngIf="isLoggedIn && isSuperUsuario">
+    <p class="card-title text-center">
+        <p-header>
+            <i class="pi pi-list" [ngStyle]="{'color': isLoggedIn && isSuperUsuario ? 'blue' : ''}"></i> <span class="text-lg"></span> # solicitudes de empresas 
+        </p-header>
+    </p>
+    <p class="card-text text-center fs-4">{{ companies }}</p>
+</div>
+
+<!-- Lista de empleados -->
+<div class="cardCount border-danger" *ngIf="isLoggedIn && isSuperUsuario">
+    <p class="card-title text-center">
+        <p-header>
+            <i class="pi pi-users" [ngStyle]="{'color': isLoggedIn && isSuperUsuario ? 'red' : ''}"></i> <span class="text-lg"></span> # usuarios totales 
+        </p-header>
+    </p>
+    <p class="card-text text-center fs-4">{{ ListUsuarios }}</p>
+</div>
+
+<!-- Crear SuperU -->
+<div class="cardCount border-success" [routerLink]="['/crearSuperU']" *ngIf="isLoggedIn && isSuperUsuario">
+    <p class="card-title text-center">
+        <p-header>
+            <i class="pi pi-user-plus" [ngStyle]="{'color': isLoggedIn && isSuperUsuario ? 'green' : ''}"></i> CREAR SUPERUSUARIO
+        </p-header>
+    </p>
+    <div class="d-flex justify-content-center align-items-center">
+        <p class="pi pi-plus"></p>
+    </div>
+</div>
+
+          
+          
+           <!-- Gráfico de companies -->
+           <div class="card-grafic"  *ngIf="isLoggedIn && isSuperUsuario" >
+            <h2 class="card-title text-center">
+              <p-header>
+                <i class="pi pi-chart-line"></i> Mes destacados por Solicitudes de empresas
+              </p-header>
+            </h2>
+            <canvas #companiesChartRef style="width: 100%; height: 300px;"></canvas>
+        </div>
+          
+
+    </div>
+</div>

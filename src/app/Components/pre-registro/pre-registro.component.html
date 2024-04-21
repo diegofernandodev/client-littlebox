@@ -1,0 +1,117 @@
+<!-- <div class="container">
+  <ul class="nav nav-tabs" id="myTabs">
+    <li class="nav-item">
+      <a class="nav-link" (click)="cambiarPestana('iniciarSesion')" 
+         [class.active]="pestanaActual === 'iniciarSesion'">Iniciar Sesión</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="cambiarPestana('registrarse')" 
+         [class.active]="pestanaActual === 'registrarse'">Registrarse</a>
+    </li>
+  </ul>
+
+  
+  <div class="tab-content">
+    <div class="tab-pane fade" id="iniciarSesion" 
+         [class.show]="pestanaActual === 'iniciarSesion'" 
+         [class.active]="pestanaActual === 'iniciarSesion'">
+
+         <div class="card text-center" style="width: 300px; margin: 20px auto;">
+          <div class="card-body"> 
+        
+            <form (ngSubmit)="onSubmit()">
+            
+              <div class="inputbox">
+                <input type="text"  [(ngModel)]="user.email" name="email" > 
+                <label >Usuario</label>
+              </div>
+
+              <div class="inputbox">
+                <input type="password"  [(ngModel)]="user.password" name="password">
+                <label>Password</label>
+              </div>
+            <div *ngIf="mensajeError" class="alert alert-danger">
+              {{ mensajeError }}
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </form>
+          </div>
+        </div>
+        <div class="text-center" style="padding-top: 10px;">
+          <a (click)="redirigirARestablecerContrasena()" style="cursor: pointer;">¿Olvidaste tu contraseña?</a>
+        </div>
+    </div>
+
+
+
+    <div class="tab-pane fade" id="registrarse" 
+         [class.show]="pestanaActual === 'registrarse'" 
+         [class.active]="pestanaActual === 'registrarse'">
+        <h2 class="text-center">¿Como deseas registrarte?</h2>
+        <br>
+        <div class="d-flex justify-content-center" style="padding-top: 20px;">
+          <button class="btn btn-primary" routerLink="/registroEmpresa/">Empresa</button>
+      </div>
+      <div class="d-flex justify-content-center" style="padding-top: 20px;">
+        <button class="btn btn-primary" routerLink="/registroEmpleado/">Empleado</button>
+      </div>
+        
+        
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="text-center mt-1 mb-3" style="background-color: #0289ED">
+    <a routerLink="/"><img src="../../assets/logo_little_box.png" height="50px"
+      class="logo" style="background-color: #0289ED; padding: 5px; border-radius: 5px; ;" alt="Logo"></a>
+  </div>
+  <ul class="nav nav-tabs px-4" id="myTabs">
+    <li class="nav-item">
+      <a class="nav-link" (click)="cambiarPestana('iniciarSesion')" [class.active]="pestanaActual === 'iniciarSesion'">Iniciar Sesión</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="cambiarPestana('registrarse')" [class.active]="pestanaActual === 'registrarse'">Registrarse</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane fade" id="iniciarSesion" [class.show]="pestanaActual === 'iniciarSesion'" [class.active]="pestanaActual === 'iniciarSesion'">
+      <div class="card mx-auto mt-3" style="max-width: 400px;">
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo</label>
+              <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email" placeholder="correo@ejemplo.com">
+            </div>
+            <div class="mb-3 position-relative">
+              <label for="password" class="form-label">Contraseña</label>
+              <div class="input-group">
+                <input [type]="showPassword ? 'text' : 'password'" class="form-control pr-4" id="password" [(ngModel)]="user.password" name="password">
+                <span class="input-group-text" style="cursor: pointer;  border-left: none" (click)="togglePasswordVisibility()">
+                  <i class="pi" [ngClass]="showPassword ? 'pi-eye-slash' : 'pi-eye'"></i> <!-- Icono de ojo -->
+                </span>
+              </div>
+            </div>
+            
+            <div *ngIf="mensajeError" class="alert alert-danger">{{ mensajeError }}</div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </form>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <a (click)="redirigirARestablecerContrasena()" style="cursor: pointer;">¿Olvidaste tu contraseña?</a>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="registrarse" [class.show]="pestanaActual === 'registrarse'" [class.active]="pestanaActual === 'registrarse'">
+      <h2 class="text-center mt-3">¿Cómo deseas registrarte?</h2>
+      <div class="d-flex justify-content-center mt-3">
+        <button class="btn btn-primary" routerLink="/registroEmpresa/">Empresa</button>
+      </div>
+      <div class="d-flex justify-content-center mt-3">
+        <button class="btn btn-primary" routerLink="/registroEmpleado/">Empleado</button>
+      </div>
+    </div>
+  </div>
+</div>

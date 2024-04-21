@@ -1,0 +1,10 @@
+//En esta carpeta de componentes se agregaran todos los relacioandos a su modulo correspondiente, apartir de las ramas ya establecidas:
+// 1.IniciarSesion: Marisol C
+// 2.chatBoot: Luis Alejandro
+// 3.egresos: Diego Velasco
+// 4.ingresos: Charles Prada
+// 5.informes: pendiente
+// 6.notificaciones: Juan Camilo P
+// 7.solicitudes: Brayan Narvaez
+// 8.Estadisticas: Manuel
+// Backend y FrontEnd  se amenajaran en camel case Ejemplo: iniciarSesion, y declaracion en ingles

@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editar Tercero</h4>
+  </div>
+  <div class="modal-body">
+    <!-- Aquí puedes colocar los campos para editar el tercero -->
+    <p>Nombre: <input [(ngModel)]="tercero.nombreTercero" [disabled]="true"></p>
+    <p>Documento: <input [(ngModel)]="tercero.documentoTercero" [disabled]="true"></p>
+    <p>Dirección: <input [(ngModel)]="tercero.direccionTercero"></p>
+    <p>Teléfono: <input [(ngModel)]="tercero.telefonoTercero"></p>
+    <p>Email: <input [(ngModel)]="tercero.emailTercero"></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="saveChanges()">Guardar Cambios</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelChanges()">Cancelar</button>
+  </div>
+  

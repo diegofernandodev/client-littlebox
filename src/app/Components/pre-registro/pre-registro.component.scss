@@ -1,0 +1,81 @@
+// /* Estilos para el contenedor principal */
+// .container {
+//     background-color: transparent; 
+//     // border-radius: 10px; /* Bordes redondeados */
+//     padding: 20px;
+//     border: transparent;
+//     backdrop-filter: blur(55px);
+//     border: none; /* Sin borde */
+
+//   }
+  
+  
+//   /* Estilos para las pestañas */
+//   .nav-tabs .nav-item .nav-link {
+//     color: #333; /* Color del texto */
+//     margin-left: 40px;
+//     border: none; /* Sin borde */
+//     background-color: transparent; /* Fondo transparente */
+//     position: relative; /* Establecer la posición relativa para alinear la línea blanca */
+//     z-index: 1;
+//   }
+  
+//   .nav-tabs .nav-item .nav-link.active {
+//     font-weight: bold;
+//   }
+  
+//   .nav-tabs .nav-item .nav-link.active, .nav-tabs .nav-item .nav-link:hover {
+//     background-color: rgba(255, 255, 255, 0.2); /* Color de fondo con transparencia */
+//   }
+//   /* Estilos para el formulario de inicio de sesión */
+//   .card {
+//     background-color:transparent;
+//     // border-radius: 10px; /* Bordes redondeados */
+//     // box-shadow: 0 0 10px rgba(22, 22, 22, 0.8); /* Sombra */
+//     // margin: 20px auto;
+//     border: none;
+//   }
+  
+//   .card-body {
+//     padding: 20px;
+//   }
+  
+//   /* Estilos para los botones de registro */
+//   .btn-primary {
+//     border: none; /* Sin borde */
+//   }
+  
+//   .btn-primary:hover {
+//     background-color: #0056b3; /* Color de fondo al pasar el mouse */
+//   }
+  
+  
+
+//   .inputbox {
+//     position: relative;
+//     width: 100%;
+//     margin-bottom: 20px;
+//   }
+  
+//   .inputbox label {
+//     position: absolute;
+//     top: 0; /* Posiciona el label encima del input */
+//     left: 5px;
+//     transition: 0.3s ease-in-out;
+//     color: #999;
+//     pointer-events: none;
+//   }
+  
+//   .inputbox input {
+//     width: 100%;
+//     height: 50px; /* Aumenta la altura del input */
+//     background: transparent;
+//     border: none;
+//     border-bottom: 1px solid #ccc;
+//     outline: none;
+//     font-size: 1rem;
+//     padding: 20px 5px 10px; /* Ajusta el padding para hacer espacio para el label */
+//     color: #333;
+//   }
+  
+  

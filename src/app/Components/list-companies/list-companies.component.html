@@ -1,0 +1,98 @@
+<!-- <div class="table-container">
+  <h1 class="title">Solicitudes de Empresas</h1>
+
+  <div  *ngIf="companies && companies.length > 0; else noCompanies">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre de la Empresa</th>
+          <th scope="col">Descargar PDF</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let company of companies.slice((currentPage - 1) * itemsPerPage, (currentPage - 1) * itemsPerPage + itemsPerPage)">
+          <td>{{ company.nameCompany }}</td>
+          <td><button (click)="verDetalle(company)">Ver</button></td>
+          <td>
+            <button (click)="approveCompany(company._id)" class="btn btn-primary">Aprobar</button>
+            <button (click)="denyCompany(company._id)" class="btn btn-danger">Denegar</button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+     
+     <div class="pagination-controls text-center">
+      <ul class="pagination">
+        <li class="page-item" *ngFor="let page of getPages()" [class.active]="currentPage === page">
+          <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ng-template #noCompanies>
+    Mensaje cuando no hay solicitudes de empresas
+    <p>No hay solicitudes de empresas.</p>
+  </ng-template>
+</div> -->
+
+
+<div class="container contenedor">
+  <div class="title">
+    </div>
+    <div class="row">
+      <div class="col">
+        <h1 class="col text-center">Solicitudes de Empresas</h1>
+        <div class="card">
+          <p-table
+            #dt1
+            [value]="companies"
+            [rows]="10"
+            [paginator]="true"
+            [showCurrentPageReport]="true"
+            [rowsPerPageOptions]="[10, 25, 50]"
+            currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+            [loading]="loading"
+            [globalFilterFields]="['nameCompany']"
+            [style]="{marginTop: '20px'}"
+            [tableStyle]="{'min-width': '60rem'}"
+          >
+            <ng-template pTemplate="caption">
+              <div class="cont-search">
+                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                <span class="p-input-icon-left">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="filterData($event)" placeholder="Buscar por palabra clave" />
+                </span>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Nombre de la Empresa</th>
+                <th>Descargar PDF</th>
+                <th>Acciones</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-company>
+              <tr>
+                <td>{{ company.nameCompany }}</td>
+                <td><button class="btn btn-info" (click)="verDetalle(company)">Ver</button></td>
+                <td>
+                  <button  (click)="approveCompany(company._id)" class="btn btn-primary">Aprobar</button>
+                  <button (click)="denyCompany(company._id)" class="btn btn-danger">Denegar</button>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="5">No hay solicitudes de Empresas para mostrar</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
