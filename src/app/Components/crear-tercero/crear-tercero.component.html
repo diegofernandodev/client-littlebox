@@ -1,4 +1,4 @@
-<div class="custom-container">
+<!-- <div class="custom-container">
   <div class="form">
     <form (ngSubmit)="guardarTercero()"  >
       <h1>Registrar un nuevo Tercero</h1>
@@ -30,5 +30,56 @@
 
       <button type="submit" class="btn btn-primary">Guardar Tercero</button>
     </form>
+  </div>
+</div> -->
+
+<div class="container d-flex justify-content-center needs-validation mb-2" style="margin-top: 80px; margin-bottom: 20px;" novalidate>
+  <div class="card" style="width: 40rem;">
+    <div class="card-header fs-5 text-center">
+      <h1 class="text-center">Registrar nuevo proveedor</h1>
+    </div>
+    <div class="card-body">
+      <form class="row g-3 p-4" (ngSubmit)="guardarTercero()" #formContact="ngForm">
+        <div class="col-md-12">
+          <label class="form-label" for="nombreTercero">Nombre del tercero</label>
+          <input type="email" [(ngModel)]="tercero.nombreTercero" name="nombreTercero" class="form-control" id="nombreTercero" rows="2" style="resize: none;" required #nombreTercero="ngModel">
+          <div class="alert alert-danger mt-2" [hidden]="nombreTercero.valid || nombreTercero.pristine">
+           Debes ingresar el nombre del proveedor.
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="numeroDoc">Nit</label>
+          <input type="text" [(ngModel)]="tercero.documentoTercero" name="numeroDoc" class="form-control" id="numeroDoc" rows="2" style="resize: none;" required #numeroDoc="ngModel">
+          <div class="alert alert-danger mt-2" [hidden]="numeroDoc.valid || numeroDoc.pristine">
+           Debes ingresar el numero de identificacion del proveedor.
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="direccion">Dirección</label>
+          <input type="text" [(ngModel)]="tercero.direccionTercero" name="dirección" class="form-control" id="direccion" rows="2" style="resize: none;" required #direccion="ngModel">
+          <div class="alert alert-danger mt-2" [hidden]="direccion.valid || direccion.pristine">
+           Debes ingresar el numero de identificacion del proveedor.
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="telefono">Teléfono</label>
+          <input type="text" [(ngModel)]="tercero.telefonoTercero" name="telefono" class="form-control" id="telefono" rows="2" style="resize: none;" required #telefono="ngModel">
+          <div class="alert alert-danger mt-2" [hidden]="telefono.valid || telefono.pristine">
+           Debes ingresar el numero de identificacion del proveedor.
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" [(ngModel)]="tercero.emailTercero" name="email" class="form-control" id="email" rows="2" style="resize: none;" required #email="ngModel">
+          <div class="alert alert-danger mt-2" [hidden]="email.valid || email.pristine">
+           Debes ingresar el correo electronico del proveedor.
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary mx-auto" [disabled]="formContact.invalid">Guardar</button>
+          <button type="submit" class="btn btn-secondary mx-auto"><a style="text-decoration: none; color: white;" routerLink="/listEgresos" >Volver</a></button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

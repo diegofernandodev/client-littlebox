@@ -1,4 +1,4 @@
-<div class="custom-container">
+<!-- <div class="custom-container">
   <div class="form">
         <form (ngSubmit)="guardarCategoria()"  >
           <h1>Registrar un nueva Categoria </h1>
@@ -10,5 +10,30 @@
       
           <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
+    </div>
+  </div> -->
+
+  <div class="container d-flex justify-content-center needs-validation mb-2" style="margin-top: 80px; margin-bottom: 20px;" novalidate>
+    <div class="card" style="width: 40rem;">
+      <div class="card-header fs-5 text-center">
+        <h1 class="text-center">Registrar nueva categoria</h1>
+      </div>
+      <div class="card-body">
+        <form class="row g-3 p-4" (ngSubmit)="guardarCategoria()" #formContact="ngForm">
+          
+          <div class="col-md-12">
+            <label class="form-label" for="nombre">Nombre de la Categoria:</label>
+            <input type="text" [(ngModel)]="categoria.nombre" name="nombre" class="form-control" id="nombre" rows="2" style="resize: none;" required #nombre="ngModel">
+            <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">
+              Debes ingresar el nombre de la categoria
+            </div>
+          </div>
+          
+          <div class="col-12 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mx-auto" [disabled]="formContact.invalid">Guardar</button>
+            <button type="submit" class="btn btn-secondary mx-auto"><a style="text-decoration: none; color: white;" routerLink="/listEgresos" >Volver</a></button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>

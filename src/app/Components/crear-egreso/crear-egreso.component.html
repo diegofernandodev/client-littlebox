@@ -1,4 +1,4 @@
-<div class="form-container">
+<!-- <div class="form-container">
   <div class="form">
 
   <h1 class="text-center">Crear Egreso</h1>
@@ -39,5 +39,65 @@
       
       <button type="submit">Guardar Egreso</button>
     </form>
+  </div>
+</div> -->
+
+
+
+<div class="container d-flex justify-content-center needs-validation mb-2" style="margin-top: 80px; margin-bottom: 20px;" novalidate>
+  <div class="card" style="width: 40rem;">
+    <div class="card-header fs-5 text-center">
+      <h1 class="text-center">Crear Egreso</h1>
+    </div>
+    <div class="card-body">
+      <form class="row g-3 p-4" (ngSubmit)="guardarEgresos()" #formContact="ngForm">
+        <div class="col-md-6">
+          <label class="form-label" for="fecha">Fecha de Egreso</label>
+          <input [(ngModel)]="egreso.fecha" name="fecha" class="form-control" type="date" id="fecha" required #fecha="ngModel" />
+          <div class="alert alert-danger mt-2" [hidden]="fecha.valid || fecha.pristine">
+            Debe seleccionar una fecha.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="valor">Valor Egreso</label>
+          <input [(ngModel)]="egreso.valor" name="valor" class="form-control" type="number" id="valor" required #valor="ngModel"/>
+          <div class="alert alert-danger mt-2" [hidden]="valor.valid || valor.pristine">
+            Debe ingresar un valor numerico.
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="tercero">Seleccione el proveedor</label>
+          <select [(ngModel)]="selectedTercero" name="tercero" class="form-select" id="tercero" required>
+            <option selected>seleccione el proveedor</option>
+            <option *ngFor="let tercero of tercero" [value]="tercero._id">{{ tercero.nombreTercero }}</option>
+          </select>
+          <p class="card-text bg-light" style="transform: rotate(0);">
+            <a (click)="openModal()" type="button" class="btn btn-info btn-sm mt-2"  class="stretched-link">crea un nuevo proveedor</a>
+          </p>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="categoria">Seleccione categoria de solicitud</label>
+          <select [(ngModel)]="selectedCategoria" name="categoria" class="form-select" id="categoria" required>
+            <option selected>Categoria de solicitud</option>
+            <option *ngFor="let categoria of categoria" [value]="categoria._id">{{ categoria.nombre }}</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="detalle">Ingresa el detalle de la solicitud</label>
+          <textarea [(ngModel)]="egreso.detalle" name="detalle" class="form-control" id="detalle" rows="2" style="resize: none;" required #detalle="ngModel"></textarea>
+          <div class="alert alert-danger mt-2" [hidden]="detalle.valid || detalle.pristine">
+            Ingresa descripcion detallada de la solicitud.
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label" for="factura">Adjunta factura soporte</label>
+          <input (change)="onFileSelected($event)" name="factura"  class="form-control" type="file" id="factura" />
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary mx-auto" [disabled]="formContact.invalid">Guardar</button>
+          <button type="submit" class="btn btn-secondary mx-auto"><a style="text-decoration: none; color: white;" routerLink="/listEgresos" >Volver</a></button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

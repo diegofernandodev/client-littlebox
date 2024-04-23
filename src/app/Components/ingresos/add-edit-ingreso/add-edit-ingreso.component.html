@@ -6,39 +6,30 @@
         <label *ngIf="id" id="solicitudIdInput">{{ formulario.ingresoId }}</label>
       </div>
       <div class="card-body">
-        <form class="row g-3 p-4" (ngSubmit)="addIngreso()">
+        <form class="row g-3 p-4" (ngSubmit)="addIngreso()" #formContact="ngForm">
           <div class="col-md-6">
             <label class="form-label" for="fecha">Fecha de Solicitud</label>
             <input [(ngModel)]="formulario.fecha" name="fecha" class="form-control" type="date" id="fecha" required #fecha="ngModel" />
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-            <div class="invalid-feedback">
+            <div class="alert alert-danger mt-2" [hidden]="fecha.valid || fecha.pristine">
               Debe seleccionar una fecha.
             </div>
           </div>
           <div class="col-md-6">
             <label class="form-label" for="valor">Valor solicitado</label>
             <input [(ngModel)]="formulario.valor" name="valor" class="form-control" type="number" id="valor" required #valor="ngModel"/>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-            <div class="invalid-feedback">
+            <div class="alert alert-danger mt-2" [hidden]="valor.valid || valor.pristine">
               Debe ingresar un valor numerico.
             </div>
           </div>
           <div class="col-md-12">
             <label class="form-label" for="detalle">Detalle del ingreso de caja</label>
             <textarea [(ngModel)]="formulario.detalle" name="detalle" class="form-control" id="detalle" rows="2" style="resize: none;" required #detalle="ngModel"></textarea>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-            <div class="invalid-feedback">
-              Detalle del ingreso de caja.
+            <div class="alert alert-danger mt-2" [hidden]="detalle.valid || detalle.pristine">
+              Ingresa descripcion detallada del ingreso.
             </div>
           </div>
           <div class="col-12 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary mx-auto">Guardar</button>
+            <button type="submit" class="btn btn-primary mx-auto" [disabled]="formContact.invalid">Guardar</button>
             <button type="submit" class="btn btn-secondary mx-auto"><a style="text-decoration: none; color: white;" routerLink="/obtenerTodosLosIngresos" >Volver</a></button>
           </div>
         </form>
