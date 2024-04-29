@@ -58,15 +58,19 @@
               <td>{{ solicitud.tercero?.nombreTercero }}</td>
             </tr>
             <tr>
-              <th>Detalle</th>
+              <th>Estado</th>
               <td>{{ solicitud.estado.nombre }}</td>
             </tr>
             <tr>
-              <th>Tercero</th>
+              <th>Detalle</th>
               <td>{{ solicitud.detalle }}</td>
             </tr>
             <tr>
-              <th>Categoría</th>
+              <th>Categoria</th>
+              <td>{{ solicitud.categorias?.nombre }}</td>
+            </tr>
+            <tr>
+              <th>Valor</th>
               <td>{{ solicitud.valor | currency }}</td>
             </tr>
             <tr>
