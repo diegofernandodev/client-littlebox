@@ -88,6 +88,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { ModalLegalComponent } from './Components/modal-legal/modal-legal.component'
+import { InforcacionAPPComponent } from './Components/inforcacion-app/inforcacion-app.component'
 
 
 
@@ -140,6 +141,7 @@ import { ModalLegalComponent } from './Components/modal-legal/modal-legal.compon
     DashboardComponent,
     CrearSuperUsuarioComponent,
     ModalLegalComponent,
+    InforcacionAPPComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,38 @@
+.card-container {
+    position: relative;
+    height: 400px; /* Ajusta la altura según sea necesario */
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    position: absolute;
+    top: 0;
+    width: 50%; /* Anchura ajustada para que las tarjetas sean más largas */
+    height: 100%; /* Las tarjetas ocuparán toda la altura del contenedor */
+    border-radius: 10px;
+    transition: all 0.5s ease;
+  }
+  
+  .front-card {
+    left: 0;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5); /* Sombra a la derecha */
+  }
+  
+  .back-card {
+    left: 45%; /* Ajusta la posición de la tarjeta trasera */
+    width: 50%; /* Ajusta el ancho de la tarjeta trasera */
+    opacity: 0.2;
+    z-index: -1;
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.5);  }
+  
+    .img-fluid {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 10px; /* Margen inferior entre las imágenes */
+      }
+      
+      .image-container {
+        max-width: 100%;
+      }
+      
