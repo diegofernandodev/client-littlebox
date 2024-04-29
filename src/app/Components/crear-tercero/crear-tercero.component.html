@@ -1,42 +1,9 @@
-<!-- <div class="custom-container">
-  <div class="form">
-    <form (ngSubmit)="guardarTercero()"  >
-      <h1>Registrar un nuevo Tercero</h1>
 
-      <div class="mb-3">
-        <label class="form-label">Nombre del tercero:</label>
-        <input type="text" [(ngModel)]="tercero.nombreTercero" name="nombreTercero" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Número de documento:</label>
-        <input type="text" [(ngModel)]="tercero.documentoTercero" name="documentoTercero" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Dirección:</label>
-        <input type="text" [(ngModel)]="tercero.direccionTercero" name="direccionTercero" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Teléfono:</label>
-        <input type="text" [(ngModel)]="tercero.telefonoTercero" name="telefonoTercero" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Email:</label>
-        <input type="email" [(ngModel)]="tercero.emailTercero" name="emailTercero" class="form-control">
-      </div>
-
-      <button type="submit" class="btn btn-primary">Guardar Tercero</button>
-    </form>
-  </div>
-</div> -->
 
 <div class="container d-flex justify-content-center needs-validation mb-2" style="margin-top: 80px; margin-bottom: 20px;" novalidate>
-  <div class="card" style="width: 40rem;">
+  <div class="card card-container" style="width: 40rem;">
     <div class="card-header fs-5 text-center">
-      <h1 class="text-center">Registrar nuevo proveedor</h1>
+      <h1 class="text-center">Agregar nuevo proveedor</h1>
     </div>
     <div class="card-body">
       <form class="row g-3 p-4" (ngSubmit)="guardarTercero()" #formContact="ngForm">

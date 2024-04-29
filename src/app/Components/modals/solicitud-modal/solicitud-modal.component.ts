@@ -1,20 +1,27 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TokenValidationService } from '../../../services/token-validation-service.service';
 
 @Component({
   selector: 'app-solicitud-modal',
   templateUrl: './solicitud-modal.component.html',
   styleUrl: './solicitud-modal.component.scss'
 })
-export class SolicitudModalComponent {
+export class SolicitudModalComponent implements OnInit{
   @Input() solicitud: any;
   mostrarModal: boolean = false;
   soicitudSeleccionada: any;
+  userData: any;
+
+  constructor(private tokenValidationService: TokenValidationService,){}
+
+  ngOnInit(){
+    this.datosUserToken()
+  }
 
   cerrarModal() {
     this.mostrarModal = false;
     this.soicitudSeleccionada = null;
   }
-
   
   async verFactura(): Promise<void> {
     if (this.solicitud && this.solicitud.facturaUrl && this.solicitud.solicitudId) {
@@ -62,5 +69,18 @@ export class SolicitudModalComponent {
         // Manejar errores de red u otros errores
     }
   }
+
+  async datosUserToken(){
+    try {
+      const token = localStorage.getItem('token');
+      if (token && await this.tokenValidationService.isValidToken(token)) {
+        this.userData = await this.tokenValidationService.getUserData(token);
+        console.log("Datos del token: ", this.userData.username);
+        
+      }
+    } catch (error) {
+      console.error('Error al verificar la autenticación:', error);
+    }
+  } 
 
 }
