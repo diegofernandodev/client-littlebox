@@ -85,7 +85,7 @@ const routes: Routes = [
   { path: 'gastoActual', component: GastoComponent},
   { path: 'crearSuperU', component: CrearSuperUsuarioComponent},
   { path: 'TratamientoDeDatos/:userId', component: ModalLegalComponent},
-  { path: 'tutorial', component: TutorialComponent},
+  { path: 'QuienesSomos', component: InforcacionAPPComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
