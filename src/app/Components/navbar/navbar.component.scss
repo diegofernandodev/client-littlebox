@@ -248,3 +248,8 @@ div {
 .btn-custom:hover svg {
   fill: white; /* Cambio de color del icono al pasar el mouse */
 }
+
+a.text-white {
+  margin-right: 10px; /* Puedes ajustar el valor según el espacio deseado */
+  text-decoration: none;
+}

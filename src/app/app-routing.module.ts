@@ -38,7 +38,7 @@ import { GastoComponent } from "../app/Components/gasto/gasto.component";
 import {DashboardComponent} from "../app/Components/dashboard/dashboard.component";
 import { CrearSuperUsuarioComponent } from "../app/Components/crear-super-usuario/crear-super-usuario.component";
 import { ModalLegalComponent } from '../app/Components/modal-legal/modal-legal.component'
-
+import {InforcacionAPPComponent} from '../app/Components/inforcacion-app/inforcacion-app.component'
 
 const routes: Routes = [
   // { path: '', component: IndexComponent },
@@ -85,6 +85,7 @@ const routes: Routes = [
   { path: 'gastoActual', component: GastoComponent},
   { path: 'crearSuperU', component: CrearSuperUsuarioComponent},
   { path: 'TratamientoDeDatos/:userId', component: ModalLegalComponent},
+  { path: 'QuienesSomos', component: InforcacionAPPComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
