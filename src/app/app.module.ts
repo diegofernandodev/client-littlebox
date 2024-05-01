@@ -87,7 +87,9 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
-import { ModalLegalComponent } from './Components/modal-legal/modal-legal.component'
+import { ModalLegalComponent } from './Components/modal-legal/modal-legal.component';
+import { IntroduccionComponent } from './Components/tutorial/introduccion/introduccion.component';
+
 
 
 
@@ -140,6 +142,7 @@ import { ModalLegalComponent } from './Components/modal-legal/modal-legal.compon
     DashboardComponent,
     CrearSuperUsuarioComponent,
     ModalLegalComponent,
+    IntroduccionComponent,
   ],
   imports: [
     BrowserModule,
