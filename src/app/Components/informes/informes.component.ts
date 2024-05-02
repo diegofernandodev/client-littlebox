@@ -73,7 +73,7 @@ export class InformesComponent {
 
   obtenerMovimientoDeC() {
     const datos: any = {};
-
+  
     // Verificar si las fechas están definidas antes de agregarlas a los filtros
     if (this.fechaInicio) {
       datos.fechaInicio = this.formatoFecha(new Date(this.fechaInicio));
@@ -81,7 +81,7 @@ export class InformesComponent {
     if (this.fechaFin) {
       datos.fechaFin = this.formatoFecha(new Date(this.fechaFin));
     }
-
+  
     // Agregar filtros de categoría y tercero si están seleccionados
     if (this.categoriaSeleccionada) {
       datos.categoria = this.categoriaSeleccionada;
@@ -89,7 +89,7 @@ export class InformesComponent {
     if (this.terceroSeleccionado) {
       datos.tercero = this.terceroSeleccionado;
     }
-
+  
     // Llamar al servicio para obtener los egresos con las fechas y filtros especificados
     this.informesService.obtenerMovimientoCaja(datos).subscribe(
       (response) => {
@@ -98,8 +98,14 @@ export class InformesComponent {
           // Mapear la lista de movimientos y formatear las fechas
           this.movimientosDeCaja = response.data.listaMovimientos.map((movimiento: any) => {
             movimiento.fecha = this.formatoFecha(new Date(movimiento.fecha));
-            return movimiento;
-            console.log('este es el movimiento', movimiento)
+            return {
+              numeroDocumento: movimiento.numeroDocumento || '0',
+              fecha: movimiento.fecha || '0',
+              detalle: movimiento.detalle || '0',
+              valor: movimiento.valor || '0',
+              tipoMovimiento: movimiento.tipoMovimiento || '',
+              saldo: movimiento.saldo || '0'
+            };
           });
           this.totalMovimientosDeCaja = this.movimientosDeCaja.length;
         } else {
@@ -113,6 +119,8 @@ export class InformesComponent {
       }
     );
   }
+  
+  
 
   formatoFecha(fecha: Date): string {
     if (!fecha || isNaN(fecha.getTime())) {

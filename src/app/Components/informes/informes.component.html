@@ -45,15 +45,21 @@
       </thead>
       <tbody>
         <tr *ngFor="let movimientoDeCaja of movimientosDeCaja | slice: ((currentPage - 1) * itemsPerPage) : ((currentPage - 1) * itemsPerPage + itemsPerPage)">
-          <td>{{ movimientoDeCaja.numeroDocumento }}</td>
-          <td>{{ movimientoDeCaja.fecha }}</td>
-          <td>{{ movimientoDeCaja.detalle }}</td>
-          <td *ngIf="movimientoDeCaja.tipoMovimiento === 'Ingreso'">{{ movimientoDeCaja.valor }}</td>
-          <td *ngIf="movimientoDeCaja.tipoMovimiento === 'Egreso'">-</td>
-          <td *ngIf="movimientoDeCaja.tipoMovimiento === 'Egreso'">{{ movimientoDeCaja.valor }}</td>
-          <td>{{ movimientoDeCaja.saldo }}</td>
+          <td>{{ movimientoDeCaja.numeroDocumento || '-' }}</td>
+          <td>{{ movimientoDeCaja.fecha || '-' }}</td>
+          <td>{{ movimientoDeCaja.detalle || '-' }}</td>
+          <td *ngIf="movimientoDeCaja.tipoMovimiento === 'Ingreso'">{{ movimientoDeCaja.valor || '-' }}</td>
+          <td *ngIf="movimientoDeCaja.tipoMovimiento !== 'Ingreso'">-</td>
+          <td *ngIf="movimientoDeCaja.tipoMovimiento === 'Egreso'">{{ movimientoDeCaja.valor || '-' }}</td>
+          <td>{{ (movimientoDeCaja.tipoMovimiento === 'Egreso') ? movimientoDeCaja.saldo || '-' : '-' }}</td>
+          
         </tr>
       </tbody>
+      
+      
+      
+      
+      
     </table>
 
     <!-- Paginación -->
