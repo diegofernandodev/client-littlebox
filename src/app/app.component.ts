@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'LittleBoxFE';
+  isChatBubbleVisible: boolean = false;
 
   constructor(private config: PrimeNGConfig,private translateService: TranslateService) {}
 
