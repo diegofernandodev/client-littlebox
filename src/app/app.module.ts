@@ -87,6 +87,9 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
+
+import { IntroduccionComponent } from './Components/tutorial/introduccion/introduccion.component';
+
 import { ModalLegalComponent } from './Components/modal-legal/modal-legal.component'
 import { InforcacionAPPComponent } from './Components/inforcacion-app/inforcacion-app.component'
 import { AngularDraggableModule } from 'angular2-draggable';
@@ -142,6 +145,7 @@ import { AngularDraggableModule } from 'angular2-draggable';
     DashboardComponent,
     CrearSuperUsuarioComponent,
     ModalLegalComponent,
+    IntroduccionComponent,
     InforcacionAPPComponent
   ],
   imports: [

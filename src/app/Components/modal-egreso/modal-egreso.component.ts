@@ -1,16 +1,22 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TokenValidationService } from '../../services/token-validation-service.service';
 
 @Component({
   selector: 'app-modal-egreso',
   templateUrl: './modal-egreso.component.html',
   styleUrl: './modal-egreso.component.scss'
 })
-export class ModalEgresoComponent {
+export class ModalEgresoComponent implements OnInit{
   @Input() egreso: any;
   mostrarModal: boolean = false;
   egresoSeleccionado: any;
+  userData: any;
 
+  constructor(private tokenValidationService: TokenValidationService,){}
 
+  ngOnInit(){
+    this.datosUserToken()
+  }
 
   cerrarModal() {
     this.mostrarModal = false;
@@ -65,6 +71,19 @@ export class ModalEgresoComponent {
         // Manejar errores de red u otros errores
     }
   }
+
+  async datosUserToken(){
+    try {
+      const token = localStorage.getItem('token');
+      if (token && await this.tokenValidationService.isValidToken(token)) {
+        this.userData = await this.tokenValidationService.getUserData(token);
+        console.log("Datos del token: ", this.userData.username);
+        
+      }
+    } catch (error) {
+      console.error('Error al verificar la autenticación:', error);
+    }
+  } 
   
 }
 

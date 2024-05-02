@@ -1,10 +1,61 @@
-<div class="modal-content">
+<!-- <div class="modal-content">
     <h3>Detalles del Egreso</h3>
     <p>Id: {{ egreso?.egresoId }}</p>
     <p>Detalle: {{ egreso?.detalle }}</p>
     <p>Tercero: {{ egreso?.tercero.nombreTercero }}</p>
     <p>Categoría: {{ egreso?.categoria.nombre }}</p>
-    <!-- <p>Factura: {{ egreso?.factura }}</p> -->
-    <p>Factura: <button (click)="verFactura()">Descargar factura</button></p>    <!-- Agrega más detalles si es necesario -->
+    <p>Factura: <button (click)="verFactura()">Descargar factura</button></p>   
   </div>
-  
+   -->
+
+  <div class="container pt-2 pb-2">
+    <div class="card card-container" style="width: 100%;">
+      <div class="card-header fs-5 text-center">
+        <h2 class="card-title mb-4 text-center fw-bold">Datos del Egreso # {{ egreso?.egresoId }}</h2>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>Número</th>
+              <td>{{ egreso.egresoId }}</td>
+            </tr>
+            <tr>
+              <th>Nombre</th>
+              <td>{{ userData?.username }}</td>
+            </tr>
+            <tr>
+              <th>Rol</th>
+              <td>{{ userData?.rol }}</td>
+            </tr>
+            <tr>
+              <th>Fecha</th>
+              <td>{{ egreso.fecha }}</td>
+            </tr>
+            <tr>
+              <th>Proveedor</th>
+              <td>{{ egreso.tercero?.nombreTercero }}</td>
+            </tr>
+            <tr>
+              <th>Detalle</th>
+              <td>{{ egreso.detalle }}</td>
+            </tr>
+            <tr>
+              <th>Categoria</th>
+              <td>{{ egreso.categoria?.nombre }}</td>
+            </tr>
+            <tr>
+              <th>Valor</th>
+              <td>{{ egreso.valor | currency }}</td>
+            </tr>
+            <tr>
+              <th>Factura</th>
+              <td>
+                <button pButton type="button" icon="pi pi-download" class="p-button p-button-icon-only p-button-outlined p-button-sm p-button-info" style="height: 2rem; width: 2rem; border-radius: 50%; margin-left: 7rem;" (click)="verFactura()"></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
