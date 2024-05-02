@@ -25,4 +25,11 @@ export class AppComponent {
       this.translateService.use(lang);
       this.translateService.get('primeng').subscribe(res => this.config.setTranslation(res));
   }
+  showChatBubble() {
+    this.isChatBubbleVisible = true;
+  }
+
+  hideChatBubble() {
+    this.isChatBubbleVisible = false;
+  }
 }

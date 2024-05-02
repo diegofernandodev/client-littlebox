@@ -89,6 +89,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { ModalLegalComponent } from './Components/modal-legal/modal-legal.component'
 import { InforcacionAPPComponent } from './Components/inforcacion-app/inforcacion-app.component'
+import { AngularDraggableModule } from 'angular2-draggable';
 
 
 
@@ -168,6 +169,7 @@ import { InforcacionAPPComponent } from './Components/inforcacion-app/inforcacio
     CheckboxModule,
     DropdownModule,
     CalendarModule,
+    AngularDraggableModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

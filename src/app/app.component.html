@@ -1,7 +1,13 @@
 <app-navbar ></app-navbar>  
 
 <router-outlet></router-outlet>
-
+<div class="whatsapp-icon" ngDraggable (mouseover)="showChatBubble()" (mouseout)="hideChatBubble()">
+    <a href="https://wa.me/message/KODZ6DQQIZR6E1">
+      <i class="pi pi-whatsapp" title="¡Chatea con nosotros!"></i>
+      <div class="chat-bubble" *ngIf="isChatBubbleVisible">¡Chatea con nosotros!</div>
+    </a>
+  </div>
+  
 <app-footer></app-footer>
 
 

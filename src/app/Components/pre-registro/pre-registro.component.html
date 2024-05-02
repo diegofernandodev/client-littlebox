@@ -89,7 +89,7 @@
               <div class="input-group">
                 <input [type]="showPassword ? 'text' : 'password'" class="form-control pr-4" id="password" [(ngModel)]="user.password" name="password">
                 <span class="input-group-text" style="cursor: pointer;  border-left: none" (click)="togglePasswordVisibility()">
-                  <i class="pi" [ngClass]="showPassword ? 'pi-eye-slash' : 'pi-eye'"></i> <!-- Icono de ojo -->
+                  <i class="pi" [ngClass]="showPassword ? 'pi-eye' : 'pi-eye-slash'"></i> <!-- Icono de ojo -->
                 </span>
               </div>
             </div>

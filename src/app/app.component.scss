@@ -1,0 +1,34 @@
+.whatsapp-icon {
+    position: fixed;
+    bottom: 60px; /* Ajusta la distancia desde la parte inferior de la pantalla */
+    right: 20px; /* Ajusta la distancia desde el lado derecho de la pantalla */
+    z-index: 999; /* Asegura que el icono esté sobre otros elementos */
+    font-size: 240px; 
+  }
+  
+  .whatsapp-icon i {
+    font-size: 50px !important; /* Utiliza !important para asegurarte de que este estilo prevalezca */
+    color: rgb(30, 255, 0);
+
+  }
+  .chat-bubble {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px; /* Ajusta el relleno (padding) según tu preferencia */
+    border-radius: 20px; /* Ajusta el radio del borde para que la burbuja sea más redondeada */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    pointer-events: none;
+    font-size: 14px; /* Ajusta el tamaño de fuente según tu preferencia */
+    top: -40px;
+  }
+  
+  
+  .whatsapp-icon:hover .chat-bubble {
+    visibility: visible;
+    opacity: 1;
+  }
+  
