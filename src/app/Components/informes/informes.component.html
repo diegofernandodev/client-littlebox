@@ -20,7 +20,7 @@
         </select>
       </div>
       <div class="col-md-3">
-        <label for="tercero">Tercero:</label>
+        <label for="tercero">Proveedor:</label>
         <select id="tercero" class="form-control" [(ngModel)]="terceroSeleccionado">
           <option value="">-- sin seleccionar --</option>
           <option *ngFor="let ter of tercero" [value]="ter._id">{{ ter.nombreTercero }}</option>
