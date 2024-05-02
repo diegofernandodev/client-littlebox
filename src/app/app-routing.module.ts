@@ -39,6 +39,7 @@ import {DashboardComponent} from "../app/Components/dashboard/dashboard.componen
 import { CrearSuperUsuarioComponent } from "../app/Components/crear-super-usuario/crear-super-usuario.component";
 import { ModalLegalComponent } from '../app/Components/modal-legal/modal-legal.component'
 import {InforcacionAPPComponent} from '../app/Components/inforcacion-app/inforcacion-app.component'
+import { IntroduccionComponent } from './Components/tutorial/introduccion/introduccion.component';
 
 const routes: Routes = [
   // { path: '', component: IndexComponent },
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'addIngreso', component: AddEditIngresoComponent, canActivate: [RoleGuard], data: { allowedRoles: ['Gerente', 'SuperUsuario'] } },
   { path: 'editIngreso/:id', component: AddEditIngresoComponent, canActivate: [RoleGuard], data: { allowedRoles: ['Gerente', 'SuperUsuario'] } },
   { path: 'sidebar', component: SidebarComponent },
+  { path: 'tutobox', component: IntroduccionComponent},
   {
     path: 'obtenerTodasLasSolicitudes',
     component: ListEdictSolicitudComponent, canActivate: [RoleGuard], data: { allowedRoles: ['Gerente', 'Administrador','Colaborador'] }

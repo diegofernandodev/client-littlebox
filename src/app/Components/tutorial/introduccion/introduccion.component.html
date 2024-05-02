@@ -1,1 +1,53 @@
-<p>introduccion works!</p>
+<div class="container mb-5">
+    <div>
+  
+      <div class="card">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center ">
+          <button class="btn btn-outline-primary btn-light btn-volver" routerLink="/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+          </svg>Volver</button>
+          <h2 class="title-tutorial text-center">¡Bienvenido a los tutoriales de Little Box!</h2>
+          <div></div>
+        </div>
+        <div class="card-body">
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div *ngFor="let titulo of titulos; let i = index" class="accordion-item mb-3">
+              <h2 class="accordion-header" [id]="'panelsStayOpen-heading' + i">
+                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#panelsStayOpen-collapse' + i" aria-expanded="false" [attr.aria-controls]="'panelsStayOpen-collapse' + i">
+                  {{ titulo }}
+                </button>
+              </h2>
+              <div [id]="'panelsStayOpen-collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'panelsStayOpen-heading' + i">
+                <div class="accordion-body">
+                  <div class="mb-3 text-center">
+                    <strong>{{ subtitulos[i] }}</strong>
+                  </div>
+                  <ul>
+                    <li *ngFor="let descripcion of descripciones[i]">{{ descripcion }}</li>
+                  </ul>
+                  <button class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#videoModal' + i">Ver video</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <!-- Modals -->
+    <div *ngFor="let titulo of titulos; let i = index" class="modal fade" [id]="'videoModal' + i" tabindex="-1" [attr.aria-labelledby]="'videoModalLabel' + i" aria-hidden="true" style="background-color: transparent;">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title titleModal" [id]="'videoModalLabel' + i">{{ titulo }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <iframe width="100%" height="315" [src]="getYouTubeEmbedUrl(videos[i])" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
